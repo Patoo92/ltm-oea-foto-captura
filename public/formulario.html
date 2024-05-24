@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTM CimTrack</title>
+    <link rel="stylesheet" href="/public/CSS/formulario.css">
+    <link rel="stylesheet" href="/public/CSS/menu.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Logo</div>
+        <ul class="nav-links">
+            <li><a href="/public/formulario.html">Tramo 1</a></li>
+            <li><a href="#" class="logout-btn">Cerrar Sesión</a></li>
+        </ul>
+    </nav> <br> <br>
+    <form id="imageForm" action="http://localhost:5500/images/multi" enctype="multipart/form-data" method="post">
+        <label for="field1">Nombre Chofer:</label>
+        <input type="text" id="field1" name="field1" required><br><br>
+
+        <label for="field2">CRT Carga:</label>
+        <input type="text" id="field2" name="field2" required><br><br>
+
+        <label for="field3">Patente:</label>
+        <input type="text" id="field3" name="field3" required><br><br>
+
+        <label for="field4">Patente Tractor:</label>
+        <input type="text" id="field4" name="field4" required><br><br>
+
+        <input type="file" name="photos" id="photos" multiple>
+        <label for="captureImage">Tomar Foto:</label>
+        <input type="button" id="captureImage" value="Abrir Cámara"><br><br>
+        <div id="previewContainer"></div>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <script src="/public/JS/formulario.js"></script>
+    <script src="/public/JS/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Fondo gris claro */
+}
+
+.container {
+  position: relative; /* Agrega posición relativa para que el rectángulo se posicione correctamente */
+  background-color: transparent; /* Fondo transparente para el contenedor */
+  border-radius: 10px; /* Borde redondeado */
+  padding: 20px; /* Espacio interno */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.container::before {
+  content: ""; /* Agrega contenido al pseudoelemento */
+  position: absolute; /* Posición absoluta para cubrir completamente el contenedor */
+  top: -10px; /* Alinea el rectángulo con la parte superior del contenedor y le da un margen superior */
+  left: -10px; /* Alinea el rectángulo con el lado izquierdo del contenedor y le da un margen izquierdo */
+  width: calc(
+    100% + 20px
+  ); /* Ancho igual al 100% del contenedor más el margen izquierdo y derecho */
+  height: calc(
+    100% + 20px
+  ); /* Altura igual al 100% del contenedor más el margen superior e inferior */
+  background-color: white; /* Color blanco */
+  z-index: -1; /* Coloca el rectángulo detrás del contenido del contenedor */
+  border-radius: 10px; /* Borde redondeado igual al contenedor */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button {
+  margin-bottom: 10px; /* Espacio entre elementos */
+  padding: 10px; /* Espacio interno */
+  border: 1px solid #ccc; /* Borde */
+  border-radius: 5px; /* Borde redondeado */
+}
+
+button {
+  background-color: #007bff; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cursor de puntero al pasar sobre él */
+}
+
+button:hover {
+  background-color: #0056b3; /* Cambio de color al pasar sobre el botón */
+}
