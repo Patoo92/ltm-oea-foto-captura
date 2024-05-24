@@ -12,6 +12,11 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Hacer que loading.html sea la página principal
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'loading.html'));
+});
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'uploads/');
@@ -63,7 +68,7 @@ app.post('/images/multi', upload.array('photos', 10), (req, res) => {
   const mailOptions = {
     from: `"LTM CimTrack" <${process.env.EMAIL_USER}>`,
     to: "aplicaicon.captura@gmail.com",
-    subject: "Envio de Imagenes ✔",
+    subject: `Envio de Imagenes ✔ - ${field1}`,
     text: `Aquí tienes las imágenes.\n\nCampos recibidos:\n- Nombre Chofer: ${field1}\n- CRT Carga: ${field2}\n- Patente: ${field3}\n- Patente Tractor: ${field4}`,
     attachments: filePaths.map(filePath => ({
       path: filePath
@@ -97,5 +102,3 @@ app.use((err, req, res, next) => {
 app.listen(5500, () => {
   console.log("Servidor escuchando en el puerto 5500");
 });
-
-
