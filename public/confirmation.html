@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Envío</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .message-box {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="message-box">
+        <h1>Envío exitoso</h1>
+        <p>El correo ha sido enviado con éxito.</p>
+        <p>Volveras al menú principal en 3 segundos...</p>
+    </div>
+    <script>
+        setTimeout(() => {
+            window.location.href = 'menu.html';
+        }, 3000);
+    </script>
+</body>
+</html>
