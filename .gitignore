@@ -31,3 +31,4 @@ Thumbs.db
 # Logs de producción
 logs/
 *.log
+.vercel
