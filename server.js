@@ -12,11 +12,6 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Hacer que loading.html sea la página principal
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'loading.html'));
-});
-
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'uploads/');
@@ -67,9 +62,9 @@ app.post('/images/multi', upload.array('photos', 10), (req, res) => {
 
   const mailOptions = {
     from: `"LTM CimTrack" <${process.env.EMAIL_USER}>`,
-    to: "aplicaicon.captura@gmail.com",
-    subject: `Info OEA + IMG - ${field1}`,
-    text: `Datos conductor + img .\n\nCampos recibidos:\n- Nombre Chofer: ${field1}\n- CRT Carga: ${field2}\n- Patente: ${field3}\n- Patente Tractor: ${field4}`,
+    to: "oea@ltm.cc",
+    subject: "Envio de Imagenes ✔",
+    text: `Aquí tienes las imágenes.\n\nCampos recibidos:\n- Nombre Chofer: ${field1}\n- CRT Carga: ${field2}\n- Patente: ${field3}\n- Patente Tractor: ${field4}`,
     attachments: filePaths.map(filePath => ({
       path: filePath
     }))
@@ -77,7 +72,7 @@ app.post('/images/multi', upload.array('photos', 10), (req, res) => {
 
   transporter.sendMail(mailOptions)
     .then(() => {
-      res.sendFile(path.join(__dirname, 'public', 'confirmation.html'));
+      res.send("Imágenes subidas y correos enviados.");
       filePaths.forEach(filePath => fs.unlink(filePath, err => {
         if (err) console.error(`Error al eliminar el archivo ${filePath}: `, err);
       }));
