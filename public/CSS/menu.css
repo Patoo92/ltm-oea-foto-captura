@@ -1,44 +1,73 @@
+/* Estilos existentes */
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  color: white;
+  display: none; /* Ocultar el nav original */
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  background-color: rgba(252, 248, 248, 0.9); /* Translucidez */
+  color: rgb(0, 0, 0); /*color "logo*/
+  overflow-x: hidden;
+  transition: 0.1s;
+  padding-top: 20px;
+}
+
+.sidebar .logo {
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar .nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar .nav-links li {
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.sidebar .nav-links a {
+  text-decoration: none;
+  color: rgb(14, 13, 13);
+  display: block;
+}
+
+.sidebar .logout-btn {
+  background-color: #ff0000;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.content {
+  transition: margin-left 0.5s;
   padding: 20px;
 }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-}
-
-.nav-links li {
-  margin: 0 15px;
-}
-
-.nav-links a {
-  text-decoration: none;
+.toggle-btn {
+  font-size: 30px;
+  cursor: pointer;
+  background-color: #333;
   color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px;
 }
 
-.logout-btn {
-  background-color: #ff0000; /* Color de fondo rojo */
-  color: black; /* Color de texto negro */
-  padding: 10px 20px; /* Ajustar el padding según el tamaño deseado */
-  border-radius: 5px; /* Añadir bordes redondeados */
-}
-
+/* Media Queries */
 @media screen and (max-width: 768px) {
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    background-color: #333;
-    padding: 10px 0;
+  .sidebar {
+    width: 200px;
+    left: -200px;
   }
 
-  .nav-links li {
-    margin: 10px 0;
+  .toggle-btn {
+    font-size: 25px;
+    padding: 8px 12px;
   }
 }
